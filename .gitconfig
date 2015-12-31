@@ -3,3 +3,5 @@
 	name = riverlei
 [core]
 	editor = zile
+[push]
+	default = simple
