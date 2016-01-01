@@ -197,7 +197,13 @@
 # 
 # alias cd=cd_func
 source ~/.git-prompt.sh
+EXTERNAL_TOOLS_DIR=/cygdrive/d/Tools
 export PS1='\n\[\e[32m\][\h] \[\e[33m\]\w$(__git_ps1 " (%s)")\[\e[0m\]\n\$  '
+export GOROOT=D:/Go
+export GOPATH=D:/Workspace/go
+export GOBIN=$GOPATH/bin
+export GOTOOLDIR=$GOPATH/tool/windows_amd64
+export PATH=$PATH:$EXTERNAL_TOOLS_DIR:/cygdrive/d/Workspace/go/bin
 alias la='ls -a'
 alias ll='ls -la'
 alias cd='cd '
@@ -206,10 +212,6 @@ alias dragon=$github/dragon-riverlei
 alias ff='find ./ -type f -name'
 alias mvn='mvn.bat'
 alias e='emacsclient-nox.exe -n '
-
-external_tools_dir=/cygdrive/d
-
-
 
 #for p in $(find $dragon/ -type d -name "stage")
 #do
@@ -220,7 +222,3 @@ external_tools_dir=/cygdrive/d
 #do
 #    export PATH=$PATH:$p
 #done
-
-
-
-
