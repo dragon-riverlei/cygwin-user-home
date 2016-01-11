@@ -1,11 +1,14 @@
 .android/
 .bash_history
+.cache/
+.scalaide/
 .ivy2/
 .local/
 .minttyrc
 .mysql_history
 .oracle_jre_usage/
 .sbt/
+.scala_history
 .*~
 AppData/
 Application Data
