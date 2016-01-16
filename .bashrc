@@ -215,7 +215,6 @@ alias dragon=$github/dragon-riverlei
 alias ff='find ./ -type f -name'
 alias mvn='mvn.bat'
 alias e='emacsclient-nox.exe -n '
-alias python='python3'
 
 #for p in $(find $dragon/ -type d -name "stage")
 #do
