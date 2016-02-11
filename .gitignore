@@ -1,5 +1,6 @@
 .android/
 .bash_history
+.bypy/
 .cache/
 .scalaide/
 .ivy2/
