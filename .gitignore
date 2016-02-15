@@ -2,7 +2,7 @@
 .bash_history
 .bypy/
 .cache/
-.scalaide/
+.gnupg/
 .ivy2/
 .local/
 .minttyrc
@@ -11,6 +11,7 @@
 .python_history
 .sbt/
 .scala_history
+.scalaide/
 .*~
 AppData/
 Application Data
