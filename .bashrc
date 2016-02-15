@@ -216,6 +216,7 @@ alias ff='find ./ -type f -name'
 alias mvn='mvn.bat'
 alias e='emacsclient-nox.exe -n '
 alias cyg='/cygdrive/d/Cygwin'
+alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 
 #for p in $(find $dragon/ -type d -name "stage")
 #do
