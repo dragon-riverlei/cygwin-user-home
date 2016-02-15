@@ -203,9 +203,11 @@ export GOROOT=D:/Go
 export GOPATH=D:/Workspace/go
 export GOBIN=$GOPATH/bin
 export GOTOOLDIR=$GOPATH/tool/windows_amd64
+export GEM_HOME=/cygdrive/d/RubyGems
 export PATH=$PATH:$EXTERNAL_TOOLS_DIR
 export PATH=$PATH:/cygdrive/d/Workspace/go/bin
 export PATH=$PATH:/cygdrive/d/SBT/bin
+export PATH=$PATH:$GEM_HOME/bin
 
 alias la='ls -a'
 alias ll='ls -la'
