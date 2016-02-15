@@ -1,0 +1,43 @@
+.android/
+.cache/
+.emacs.d/
+.git/
+.ivy2/
+.local/
+.sbt/
+.*~
+AppData/
+Application Data
+CMB/
+Contacts/
+Cookies
+Desktop/
+Documents/
+Downloads
+Favorites/
+Links/
+Local Settings
+Music/
+My Documents
+NTUSER.DAT
+NTUSER.DAT{a70100f6-ab99-11e5-b48b-8cacfbaba04d}.TM.blf
+NTUSER.DAT{a70100f6-ab99-11e5-b48b-8cacfbaba04d}.TMContainer00000000000000000001.regtrans-ms
+NTUSER.DAT{a70100f6-ab99-11e5-b48b-8cacfbaba04d}.TMContainer00000000000000000002.regtrans-ms
+NetHood
+OneDrive/
+org
+Pictures/
+PrintHood
+Recent
+Saved Games/
+Searches/
+SendTo
+Templates
+Tools
+Videos/
+ntuser.dat.LOG1
+ntuser.dat.LOG2
+ntuser.ini
+「开始」菜单
+
+
