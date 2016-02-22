@@ -216,7 +216,8 @@ alias github=/cygdrive/D/GitHub
 alias dragon=$github/dragon-riverlei
 alias ff='find ./ -type f -name'
 alias mvn='mvn.bat'
-alias e='emacsclient-nox.exe -n '
+alias e='emacsclient-w32.exe -n '
+alias ew='emacs-w32.exe &'
 alias cyg='/cygdrive/d/Cygwin'
 alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 
