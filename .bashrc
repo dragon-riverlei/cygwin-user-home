@@ -199,21 +199,30 @@
 source ~/.git-prompt.sh
 EXTERNAL_TOOLS_DIR=/cygdrive/d/Tools
 export PS1='\n\[\e[32m\][\h] \[\e[33m\]\w$(__git_ps1 " (%s)")\[\e[0m\]\n\$  '
-export GOROOT=D:/Go
-export GOPATH=D:/Workspace/go
-export GOBIN=$GOPATH/bin
-export GOTOOLDIR=$GOPATH/tool/windows_amd64
+export GOROOT=C:/Green/Go/1.5.1
+export GOPATH=C:/Code/hel_git/go
+export GOBIN=C:/Code/hel_git/go/bin
+export GOTOOLDIR=C:/Green/Go/1.5.1/tool/windows_amd64
+export ANDROID_HOME=/cygdrive/c/Installed/Android/sdk
+export SCALA_HOME=/cygdrive/c/Installed/Scala
 export GEM_HOME=/cygdrive/d/RubyGems
 export PATH=$PATH:$EXTERNAL_TOOLS_DIR
 export PATH=$PATH:/cygdrive/d/Workspace/go/bin
 export PATH=$PATH:/cygdrive/d/SBT/bin
 export PATH=$PATH:$GEM_HOME/bin
+export PATH=$PATH:/cygdrive/c/Code/hel_git/go/bin
+export HTML_TIDY=$HOME/.tidyrc
+export suse1='i062289@10.58.133.59'
+export suse2='i062289@10.58.134.99'
 
 alias la='ls -a'
 alias ll='ls -la'
 alias cd='cd '
-alias github=/cygdrive/D/GitHub
-alias dragon=$github/dragon-riverlei
+alias smpsrc=/cygdrive/c/Code/hel_git/smp/dist/main.build
+alias hcmsrc=/cygdrive/c/Code/hel_git/hcmui
+alias h3=/cygdrive/c/GitHub/H3/h3-investment
+alias imenu=/cygdrive/c/Code/hel_git/imenu/imenu_client
+alias github=/cygdrive/c/GitHub
 alias ff='find ./ -type f -name'
 alias mvn='mvn.bat'
 alias e='emacsclient-w32.exe -n '
@@ -221,12 +230,22 @@ alias ew='emacs-w32.exe &'
 alias cyg='/cygdrive/d/Cygwin'
 alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 
-#for p in $(find $dragon/ -type d -name "stage")
-#do
-#    export PATH=$PATH:$p/bin
-#done
+for p in $(find /cygdrive/c/GitHub/H3/h3-investment/info-collector/scala/ -type d -name "stage")
+do
+    export PATH=$PATH:$p/bin
+done
 
-#for p in $(find ./Tools/ -type d -name "bin")
-#do
-#    export PATH=$PATH:$p
-#done
+function setProxy(){
+    export http_proxy=http://proxy.pal.sap.corp:8080
+    export https_proxy=$http_proxy
+    export ftp_proxy=$http_proxy
+    export rsync_proxy=$http_proxy
+    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+}
+function unsetProxy(){
+    export http_proxy=
+    export https_proxy=
+    export ftp_proxy=
+    export rsync_proxy=
+    export no_proxy=
+}

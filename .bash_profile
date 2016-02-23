@@ -29,9 +29,39 @@ if [ -f "${HOME}/.bashrc" ] ; then
 fi
 
 # Set PATH so it includes user's private bin if it exists
-# if [ -d "${HOME}/bin" ] ; then
-#   PATH="${HOME}/bin:${PATH}"
-# fi
+if [ -d "${HOME}/bin" ] ; then
+  PATH="${HOME}/bin:${PATH}"
+fi
+
+# Set PATH so it includes jdk if it exists
+if [ -d "/cygdrive/c/Green/jdk1.7.0_45-x64/bin" ] ; then
+  PATH="/cygdrive/c/Green/jdk1.7.0_45-x64/bin:${PATH}"
+fi
+
+# Set PATH so it includes sbt if it exists
+if [ -d "${HOME}/bin/sbt/bin" ] ; then
+  PATH="${HOME}/bin/sbt/bin:${PATH}"
+fi
+
+# Set PATH so it includes sqlshell if it exists
+if [ -d "${HOME}/bin/sqlshell/bin" ] ; then
+  PATH="${HOME}/bin/sqlshell/bin:${PATH}"
+fi
+
+# Set PATH so it includes Maven if it exists
+if [ -d "/cygdrive/c/Green/Maven4SUP" ] ; then
+  PATH="${PATH}:/cygdrive/c/Green/Maven4SUP/bin"
+fi
+
+# Set PATH so it includes Ant if it exists
+if [ -d "/cygdrive/c/Green/Ant" ] ; then
+  PATH="${PATH}:/cygdrive/c/Green/Ant/bin"
+fi
+
+# Set PATH so it includes HenPlus if it exists
+if [ -d "${HOME}/bin/henplus/bin" ] ; then
+  PATH="${PATH}:${HOME}/bin/henplus/bin"
+fi
 
 # Set MANPATH so it includes users' private man if it exists
 # if [ -d "${HOME}/man" ]; then
