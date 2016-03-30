@@ -249,3 +249,17 @@ function unsetProxy(){
     export rsync_proxy=
     export no_proxy=
 }
+
+rm -f /GitHub
+ln -s /cygdrive/c/GitHub /GitHub
+
+#for p in $(find $dragon/ -type d -name "stage")
+#do
+#    export PATH=$PATH:$p/bin
+#done
+
+#for p in $(find ./Tools/ -type d -name "bin")
+#do
+#    export PATH=$PATH:$p
+#done
+
