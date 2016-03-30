@@ -223,6 +223,9 @@ alias ew='emacs-w32.exe &'
 alias cyg='/cygdrive/d/Cygwin'
 alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 
+rm -f /GitHub
+ln -s /cygdrive/d/GitHub /GitHub
+
 #for p in $(find $dragon/ -type d -name "stage")
 #do
 #    export PATH=$PATH:$p/bin
