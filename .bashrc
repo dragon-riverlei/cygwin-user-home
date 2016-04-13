@@ -196,47 +196,55 @@
 # }
 # 
 # alias cd=cd_func
+
 source ~/.git-prompt.sh
-EXTERNAL_TOOLS_DIR=/cygdrive/d/Tools
+
+rm -f /GitHub
+ln -s /cygdrive/c/GitHub /GitHub
+
+rm -f /BaiduYun
+ln -s /cygdrive/c/BaiduYun /BaiduYun
+
 export PS1='\n\[\e[32m\][\h] \[\e[33m\]\w$(__git_ps1 " (%s)")\[\e[0m\]\n\$  '
+
 export GOROOT=C:/Green/Go/1.5.1
 export GOPATH=C:/Code/hel_git/go
 export GOBIN=C:/Code/hel_git/go/bin
 export GOTOOLDIR=C:/Green/Go/1.5.1/tool/windows_amd64
-export ANDROID_HOME=/cygdrive/c/Installed/Android/sdk
-export SCALA_HOME=/cygdrive/c/Installed/Scala
-export GEM_HOME=/cygdrive/d/RubyGems
-export PATH=$PATH:$EXTERNAL_TOOLS_DIR
-export PATH=$PATH:/cygdrive/d/Workspace/go/bin
-export PATH=$PATH:/cygdrive/d/SBT/bin
-export PATH=$PATH:$GEM_HOME/bin
+
+export ANDROID_HOME=/cygdrive/c/Green/Android/android-sdk
+
+export GEM_HOME=/cygdrive/c/RubyGems
+
+export PATH=$PATH:/cygdrive/c/Green
+export PATH=$PATH:/cygdrive/c/Workspace/go/bin
+export PATH=$PATH:/cygdrive/c/SBT/bin
 export PATH=$PATH:/cygdrive/c/Code/hel_git/go/bin
+
 export HTML_TIDY=$HOME/.tidyrc
+
 export suse1='i062289@10.58.133.59'
 export suse2='i062289@10.58.134.99'
 
-alias la='ls -a'
-alias ll='ls -la'
+export DISPLAY=:0.0
+
+
+alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 alias cd='cd '
-alias smpsrc=/cygdrive/c/Code/hel_git/smp/dist/main.build
-alias hcmsrc=/cygdrive/c/Code/hel_git/hcmui
-alias h3=/cygdrive/c/GitHub/H3/h3-investment
-alias imenu=/cygdrive/c/Code/hel_git/imenu/imenu_client
-alias github=/cygdrive/c/GitHub
-alias ff='find ./ -type f -name'
-alias mvn='mvn.bat'
+alias la='ls -a'
+alias ll='ls -la'alias smpsrc=/cygdrive/c/Code/hel_git/smp/dist/main.build
 alias e='emacsclient-w32.exe -n '
 alias ew='emacs-w32.exe &'
-alias cyg='/cygdrive/d/Cygwin'
-alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
-
-for p in $(find /cygdrive/c/GitHub/H3/h3-investment/info-collector/scala/ -type d -name "stage")
-do
-    export PATH=$PATH:$p/bin
-done
+alias ff='find ./ -type f -name'
+alias ghd=/GitHub/dragon-riverlei
+alias hcmsrc=/cygdrive/c/Code/hel_git/hcmui
+alias jc='jupyter qtconsole --style '
+alias mvn='mvn.bat'
+alias org='/BaiduYun/org'
+alias xx='startxwin &'
 
 function setProxy(){
-    export http_proxy=http://proxy.pal.sap.corp:8080
+    export http_proxy=http://proxy.pvgl.sap.corp:8080
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
     export rsync_proxy=$http_proxy
@@ -250,16 +258,78 @@ function unsetProxy(){
     export no_proxy=
 }
 
-rm -f /GitHub
-ln -s /cygdrive/c/GitHub /GitHub
+function syncuporg(){
+    cd /BaiduYun/org
+    clean=$(git status | grep -c "nothing to commit")
+    if [ "$clean" != "1" ]; then
+        echo "Workspace not clean. Abort sync."
+        return
+    fi
+    cd /BaiduYun
+    rm -rf org.yun
+    mkdir org.yun
+    cd /BaiduYun/org.yun
+    echo "Dowloading from Baidu Yun..."
+    bypy.py downfile data1.tar.gz
+    mv data1.tar.gz data1.tar.gz.gpg
+    gpg -d data1.tar.gz.gpg | tar zxvf -
+    echo "Checking local revision with remote revision..."
+    cd /BaiduYun/org.yun/org
+    count_yun=$(git log  --pretty=format:"%cI" | grep -c "+08:00")
+    cd /BaiduYun/org
+    count=$(git log  --pretty=format:"%cI" | grep -c "+08:00")
+    cd /BaiduYun
+    if [ $count_yun -gt $count ]; then
+        echo "Workspace is NOT up-to-date. Please sync down first."
+        rm -rf /BaiduYun/org.yun
+        return
+    elif [ $count_yun -eq $count ]; then
+        echo "Already up-to-date."
+        rm -rf /BaiduYun/org.yun
+        return
+    fi
+    echo "Preparing uploading..."
+    tar zcf data1.tar.gz org
+    gpg -e -s data1.tar.gz
+    rm data1.tar.gz
+    mv data1.tar.gz.gpg data1.tar.gz
+    echo "Uploading..."
+    bypy.py upload data1.tar.gz
+    rm data1.tar.gz
+    rm -rf org.yun
+    echo "Done."
+}
 
-#for p in $(find $dragon/ -type d -name "stage")
-#do
-#    export PATH=$PATH:$p/bin
-#done
-
-#for p in $(find ./Tools/ -type d -name "bin")
-#do
-#    export PATH=$PATH:$p
-#done
-
+function syncdownorg(){
+    cd /BaiduYun/org
+    clean=$(git status | grep -c "nothing to commit")
+    if [ "$clean" != "1" ]; then
+        echo "Workspace not clean. Abort sync."
+        return
+    fi
+    cd /BaiduYun
+    rm -rf org.yun
+    mkdir org.yun
+    cd /BaiduYun/org.yun
+    echo "Dowloading from Baidu Yun..."
+    bypy.py downfile data1.tar.gz
+    mv data1.tar.gz data1.tar.gz.gpg
+    gpg -d data1.tar.gz.gpg | tar zxvf -
+    echo "Checking local revision with remote revision..."
+    cd /BaiduYun/org.yun/org
+    count_yun=$(git log  --pretty=format:"%cI" | grep -c "+08:00")
+    cd /BaiduYun/org
+    count=$(git log  --pretty=format:"%cI" | grep -c "+08:00")
+    cd /BaiduYun
+    if [  $count_yun -le $count ]; then
+        echo "Already up-to-date."
+        rm -rf /BaiduYun/org.yun
+        return
+    fi
+    cd /BaiduYun
+    rm -rf /BaiduYun/org.copy
+    mv /BaiduYun/org /BaiduYun/org.copy
+    mv /BaiduYun/org.yun/org /BaiduYun/org
+    rm -rf /BaiduYun/org.yun
+    echo "Done."
+}
