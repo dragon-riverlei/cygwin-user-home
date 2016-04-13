@@ -1,18 +1,29 @@
+.Xauthority
 .android/
 .bash_history
 .bypy/
 .cache/
+.config/
+.dbus/
 .gnupg/
+.ipython/
 .ivy2/
+.jupyter/
 .local/
+.matplotlib/
 .minttyrc
+.my.cnf
 .mysql_history
+.node_repl_history
 .oracle_jre_usage/
 .python_history
-.sbt/
 .scala_history
 .scalaide/
+.sbt/
+.serverauth.*
+.xsession-errors
 .*~
+
 AppData/
 Application Data
 CMB/
@@ -40,7 +51,6 @@ NTUSER.DAT{62e13463-7ee5-11e5-80c4-a4badb40df56}.TxR.blf
 Start Menu
 NetHood
 OneDrive/
-org
 Pictures/
 PrintHood
 Recent
@@ -50,9 +60,14 @@ SendTo
 Templates
 Tools
 Videos/
+
 ntuser.dat.LOG1
 ntuser.dat.LOG2
 ntuser.ini
+org
+pip.list
+pip.list.ZILESAVE
+
 「开始」菜单
 
 
