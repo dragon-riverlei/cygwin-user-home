@@ -196,15 +196,16 @@
 # }
 # 
 # alias cd=cd_func
+
 source ~/.git-prompt.sh
 
-rm -rf /GitHub
+rm -f /GitHub
 ln -s /cygdrive/d/GitHub /GitHub
 
-rm -rf /BaiduYun
+rm -f /BaiduYun
 ln -s /cygdrive/d/BaiduYun /BaiduYun
 
-rm -rf /Tools
+rm -f /Tools
 ln -s /cygdrive/d/Tools /Tools
 
 export PS1='\n\[\e[32m\][\h] \[\e[33m\]\w$(__git_ps1 " (%s)")\[\e[0m\]\n\$  '
@@ -216,7 +217,6 @@ export GOTOOLDIR=$GOPATH/tool/windows_amd64
 
 export GEM_HOME=/cygdrive/d/RubyGems
 
-export PATH=$PATH:$EXTERNAL_TOOLS_DIR/MeCab/bin
 export PATH=$PATH:/cygdrive/d/Workspace/go/bin
 export PATH=$PATH:/cygdrive/d/SBT/bin
 export PATH=$PATH:/cygdrive/d/JDK/1.8.0_66/bin
@@ -232,6 +232,85 @@ alias e='emacsclient-w32.exe -n '
 alias ew='emacs-w32.exe &'
 alias ff='find ./ -type f -name'
 alias ghd=/GitHub/dragon-riverlei
+alias jc='jupyter qtconsole --style '
 alias la='ls -a'
 alias ll='ls -la'
 alias mvn='mvn.bat'
+alias org='/BaiduYun/org'
+alias xx='startxwin &'
+
+function syncuporg(){
+    cd /BaiduYun/org
+    clean=$(git status | grep -c "nothing to commit")
+    if [ "$clean" != "1" ]; then
+        echo "Workspace not clean. Abort sync."
+        return
+    fi
+    cd /BaiduYun
+    rm -rf org.yun
+    mkdir org.yun
+    cd /BaiduYun/org.yun
+    echo "Dowloading from Baidu Yun..."
+    bypy.py downfile data1.tar.gz
+    mv data1.tar.gz data1.tar.gz.gpg
+    gpg -d data1.tar.gz.gpg | tar zxvf -
+    echo "Checking local revision with remote revision..."
+    cd /BaiduYun/org.yun/org
+    count_yun=$(git log  --pretty=format:"%cI" | grep -c "+08:00")
+    cd /BaiduYun/org
+    count=$(git log  --pretty=format:"%cI" | grep -c "+08:00")
+    cd /BaiduYun
+    if [ $count_yun -gt $count ]; then
+        echo "Workspace is NOT up-to-date. Please sync down first."
+        rm -rf /BaiduYun/org.yun
+        return
+    elif [ $count_yun -eq $count ]; then
+        echo "Already up-to-date."
+        rm -rf /BaiduYun/org.yun
+        return
+    fi
+    echo "Preparing uploading..."
+    tar zcf data1.tar.gz org
+    gpg -e -s data1.tar.gz
+    rm data1.tar.gz
+    mv data1.tar.gz.gpg data1.tar.gz
+    echo "Uploading..."
+    bypy.py upload data1.tar.gz
+    rm data1.tar.gz
+    rm -rf org.yun
+    echo "Done."
+}
+
+function syncdownorg(){
+    cd /BaiduYun/org
+    clean=$(git status | grep -c "nothing to commit")
+    if [ "$clean" != "1" ]; then
+        echo "Workspace not clean. Abort sync."
+        return
+    fi
+    cd /BaiduYun
+    rm -rf org.yun
+    mkdir org.yun
+    cd /BaiduYun/org.yun
+    echo "Dowloading from Baidu Yun..."
+    bypy.py downfile data1.tar.gz
+    mv data1.tar.gz data1.tar.gz.gpg
+    gpg -d data1.tar.gz.gpg | tar zxvf -
+    echo "Checking local revision with remote revision..."
+    cd /BaiduYun/org.yun/org
+    count_yun=$(git log  --pretty=format:"%cI" | grep -c "+08:00")
+    cd /BaiduYun/org
+    count=$(git log  --pretty=format:"%cI" | grep -c "+08:00")
+    cd /BaiduYun
+    if [  $count_yun -le $count ]; then
+        echo "Already up-to-date."
+        rm -rf /BaiduYun/org.yun
+        return
+    fi
+    cd /BaiduYun
+    rm -rf /BaiduYun/org.copy
+    mv /BaiduYun/org /BaiduYun/org.copy
+    mv /BaiduYun/org.yun/org /BaiduYun/org
+    rm -rf /BaiduYun/org.yun
+    echo "Done."
+}
