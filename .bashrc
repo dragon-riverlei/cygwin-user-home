@@ -197,41 +197,41 @@
 # 
 # alias cd=cd_func
 source ~/.git-prompt.sh
-EXTERNAL_TOOLS_DIR=/cygdrive/d/Tools
+
+rm -rf /GitHub
+ln -s /cygdrive/d/GitHub /GitHub
+
+rm -rf /BaiduYun
+ln -s /cygdrive/d/BaiduYun /BaiduYun
+
+rm -rf /Tools
+ln -s /cygdrive/d/Tools /Tools
+
 export PS1='\n\[\e[32m\][\h] \[\e[33m\]\w$(__git_ps1 " (%s)")\[\e[0m\]\n\$  '
+
 export GOROOT=D:/Go
 export GOPATH=D:/Workspace/go
 export GOBIN=$GOPATH/bin
 export GOTOOLDIR=$GOPATH/tool/windows_amd64
+
 export GEM_HOME=/cygdrive/d/RubyGems
-export PATH=$PATH:$EXTERNAL_TOOLS_DIR
+
 export PATH=$PATH:$EXTERNAL_TOOLS_DIR/MeCab/bin
 export PATH=$PATH:/cygdrive/d/Workspace/go/bin
 export PATH=$PATH:/cygdrive/d/SBT/bin
 export PATH=$PATH:/cygdrive/d/JDK/1.8.0_66/bin
 export PATH=$PATH:$GEM_HOME/bin
+export PATH=$PATH:/Tools
+export PATH=$PATH:/Tools/MeCab/bin
 
-alias la='ls -a'
-alias ll='ls -la'
+export DISPLAY=:0.0
+
+alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 alias cd='cd '
-alias github=/cygdrive/D/GitHub
-alias dragon=$github/dragon-riverlei
-alias ff='find ./ -type f -name'
-alias mvn='mvn.bat'
 alias e='emacsclient-w32.exe -n '
 alias ew='emacs-w32.exe &'
-alias cyg='/cygdrive/d/Cygwin'
-alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
-
-rm -f /GitHub
-ln -s /cygdrive/d/GitHub /GitHub
-
-#for p in $(find $dragon/ -type d -name "stage")
-#do
-#    export PATH=$PATH:$p/bin
-#done
-
-#for p in $(find ./Tools/ -type d -name "bin")
-#do
-#    export PATH=$PATH:$p
-#done
+alias ff='find ./ -type f -name'
+alias ghd=/GitHub/dragon-riverlei
+alias la='ls -a'
+alias ll='ls -la'
+alias mvn='mvn.bat'
