@@ -244,7 +244,7 @@ alias org='/BaiduYun/org'
 alias xx='startxwin &'
 
 function setProxy(){
-    export http_proxy=http://proxy.pvgl.sap.corp:8080
+    export http_proxy=http://proxy.pal.sap.corp:8080
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
     export rsync_proxy=$http_proxy
