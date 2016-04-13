@@ -67,12 +67,14 @@ TAGS
 AppData/
 Application Data
 CMB/
+CMLogger0.log
 Contacts/
 Cookies
 Desktop/
 Documents/
 Downloads
 Favorites/
+IntelGraphicsProfiles/
 Links/
 Local Settings
 Music/
@@ -91,6 +93,9 @@ NTUSER.DAT{62e13463-7ee5-11e5-80c4-a4badb40df56}.TxR.0.regtrans-ms
 NTUSER.DAT{62e13463-7ee5-11e5-80c4-a4badb40df56}.TxR.1.regtrans-ms
 NTUSER.DAT{62e13463-7ee5-11e5-80c4-a4badb40df56}.TxR.2.regtrans-ms
 NTUSER.DAT{62e13463-7ee5-11e5-80c4-a4badb40df56}.TxR.blf
+NTUSER.DAT{bf54a94f-2704-11e5-80db-e41d2d743300}.TM.blf
+NTUSER.DAT{bf54a94f-2704-11e5-80db-e41d2d743300}.TMContainer00000000000000000001.regtrans-ms
+NTUSER.DAT{bf54a94f-2704-11e5-80db-e41d2d743300}.TMContainer00000000000000000002.regtrans-ms
 Start Menu
 NetHood
 OneDrive/
@@ -121,3 +126,4 @@ vpn
 vpn_no
 「开始」菜单
 workspace/
+
