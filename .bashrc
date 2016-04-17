@@ -220,6 +220,7 @@ export PATH=$PATH:/cygdrive/c/Green
 export PATH=$PATH:/cygdrive/c/Workspace/go/bin
 export PATH=$PATH:/cygdrive/c/SBT/bin
 export PATH=$PATH:/cygdrive/c/Code/hel_git/go/bin
+export PATH=$PATH:$GEM_HOME/bin
 
 export HTML_TIDY=$HOME/.tidyrc
 
@@ -231,6 +232,7 @@ export DISPLAY=:0.0
 
 alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 alias cd='cd '
+alias cyg='/cygdrive/c/Cygwin'
 alias la='ls -a'
 alias ll='ls -la'alias smpsrc=/cygdrive/c/Code/hel_git/smp/dist/main.build
 alias e='emacsclient-w32.exe -n '
@@ -238,7 +240,7 @@ alias ew='emacs-w32.exe &'
 alias ff='find ./ -type f -name'
 alias ghd=/GitHub/dragon-riverlei
 alias hcmsrc=/cygdrive/c/Code/hel_git/hcmui
-alias jc='jupyter qtconsole --style '
+alias jc='jupyter qtconsole --style perldoc'
 alias mvn='mvn.bat'
 alias org='/BaiduYun/org'
 alias xx='startxwin &'
