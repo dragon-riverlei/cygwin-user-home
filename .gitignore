@@ -63,6 +63,7 @@ TAGS
 .swt/
 .ssh/
 .tidyrc
+.viminfo
 .w3m/
 AppData/
 Application Data
