@@ -243,6 +243,10 @@ alias hcmsrc=/cygdrive/c/Code/hel_git/hcmui
 alias jc='jupyter qtconsole --style perldoc'
 alias mvn='mvn.bat'
 alias org='/BaiduYun/org'
+alias pud='pushd'
+alias pod='popd'
+alias smp=/cygdrive/c/Code/hel_git/smp/dist/main.build
+alias taskjuggler="tj3"
 alias xx='startxwin &'
 
 function setProxy(){
