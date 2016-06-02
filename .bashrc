@@ -242,6 +242,7 @@ alias ghd=/GitHub/dragon-riverlei
 alias hcmsrc=/cygdrive/c/Code/hel_git/hcmui
 alias jc='jupyter qtconsole --style perldoc'
 alias mvn='mvn.bat'
+alias om='/GitHub/dragon-riverlei/omnisharp_server/OmniSharp/bin/Debug/OmniSharp.exe'
 alias org='/BaiduYun/org'
 alias pud='pushd'
 alias pod='popd'
