@@ -211,6 +211,7 @@ export GOROOT=C:/Green/Go/1.5.1
 export GOPATH=C:/Code/hel_git/go
 export GOBIN=C:/Code/hel_git/go/bin
 export GOTOOLDIR=C:/Green/Go/1.5.1/tool/windows_amd64
+export GRAPHVIZ_DOT=C:/Cygwin/bin/dot.exe
 
 export ANDROID_HOME=/cygdrive/c/Green/Android/android-sdk
 
