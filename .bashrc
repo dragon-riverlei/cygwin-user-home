@@ -217,7 +217,9 @@ export ANDROID_HOME=/cygdrive/c/Green/Android/android-sdk
 
 export GEM_HOME=/cygdrive/c/RubyGems
 
-export PATH=$PATH:/cygdrive/c/Green
+export PATH=$PATH:$(cygpath $GOROOT)/bin
+export PATH=$PATH:$(cygpath $GOPATH)/bin
+export PATH=$PATH:$(cygpath $GOBIN)
 export PATH=$PATH:/cygdrive/c/Workspace/go/bin
 export PATH=$PATH:/cygdrive/c/SBT/bin
 export PATH=$PATH:/cygdrive/c/Code/hel_git/go/bin
@@ -234,6 +236,7 @@ export DISPLAY=:0.0
 alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 alias cd='cd '
 alias cyg='/cygdrive/c/Cygwin'
+alias dirs='dirs -v'
 alias la='ls -a'
 alias ll='ls -la'alias smpsrc=/cygdrive/c/Code/hel_git/smp/dist/main.build
 alias e='emacsclient-w32.exe -n '
@@ -245,11 +248,25 @@ alias jc='jupyter qtconsole --style perldoc'
 alias mvn='mvn.bat'
 alias om='/GitHub/dragon-riverlei/omnisharp_server/OmniSharp/bin/Debug/OmniSharp.exe'
 alias org='/BaiduYun/org'
-alias pud='pushd'
-alias pod='popd'
+alias p1='pushd +1'
+alias p2='pushd +2'
+alias p3='pushd +3'
+alias p4='pushd +4'
+alias p5='pushd +5'
+alias p6='pushd +6'
+alias p7='pushd +7'
+alias p8='pushd +8'
+alias p9='pushd +9'
 alias smp=/cygdrive/c/Code/hel_git/smp/dist/main.build
 alias taskjuggler="tj3"
 alias xx='startxwin &'
+
+pushd ~/.emacs.d
+pushd /cygdrive/c/Code/hel_git/smp/dist/main.build
+pushd /cygdrive/c/GitSAP/I062289/ultralite_xamarin
+pushd /cygdrive/c/Installed/sqlany17/SDK/Include
+pushd /cygdrive/c/GitHub/dragon-riverlei/osgi_in_action
+pushd /cygdrive/c/Code/hel_view_uepmain_dev_new/calm/dub/uep/server/dspushd +6
 
 function setProxy(){
     export http_proxy=http://proxy.pal.sap.corp:8080
@@ -341,3 +358,9 @@ function syncdownorg(){
     rm -rf /BaiduYun/org.yun
     echo "Done."
 }
+
+PATH="/home/I062289/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/I062289/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/I062289/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/I062289/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/I062289/perl5"; export PERL_MM_OPT;
