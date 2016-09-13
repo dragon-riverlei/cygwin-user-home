@@ -12,6 +12,8 @@ TAGS
 .ccase_wvreg
 .config/
 .cordova/
+.cpan/
+.cpanm/
 .dbus/
 .dnx/
 .eclipse/
@@ -34,6 +36,7 @@ TAGS
 .ivy2/
 .jmc/
 .jupyter/
+.keystore_cc_rview
 .lesshst
 .local/
 .m2
@@ -50,6 +53,7 @@ TAGS
 .python_history
 .rnd
 .sbt/
+.server_regv8
 .sdb/
 .scala_history
 .scalaide/
@@ -121,6 +125,7 @@ ntuser.dat.LOG2
 ntuser.ini
 ntuser.pol
 org
+perl5/
 pip.list
 pip.list.ZILESAVE
 sybase/
