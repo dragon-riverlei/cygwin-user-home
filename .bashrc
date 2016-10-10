@@ -266,14 +266,16 @@ pushd /cygdrive/c/Code/hel_git/smp/dist/main.build
 pushd /cygdrive/c/GitSAP/I062289/ultralite_xamarin
 pushd /cygdrive/c/Installed/sqlany17/SDK/Include
 pushd /cygdrive/c/GitHub/dragon-riverlei/osgi_in_action
-pushd /cygdrive/c/Code/hel_view_uepmain_dev_new/calm/dub/uep/server/dspushd +6
+pushd /cygdrive/c/Code/hel_view_uepmain_dev_new/calm/dub/uep/server/ds
 
 function setProxy(){
-    export http_proxy=http://proxy.pal.sap.corp:8080
+    local proxy="$1"
+    export http_proxy=http://proxy.$proxy.sap.corp:8080
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
     export rsync_proxy=$http_proxy
     export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    echo "Proxy set to $http_proxy."
 }
 function unsetProxy(){
     export http_proxy=
@@ -281,6 +283,7 @@ function unsetProxy(){
     export ftp_proxy=
     export rsync_proxy=
     export no_proxy=
+    echo "Proxy set to empty."
 }
 
 function syncuporg(){
