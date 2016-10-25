@@ -232,6 +232,9 @@ export suse2='i062289@10.58.134.99'
 
 export DISPLAY=:0.0
 
+# For IPython edit function
+export EDITOR='emacsclient-w32.exe '
+
 
 alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 alias cd='cd '
@@ -259,6 +262,7 @@ alias p8='pushd +8'
 alias p9='pushd +9'
 alias smp=/cygdrive/c/Code/hel_git/smp/dist/main.build
 alias taskjuggler="tj3"
+alias tshark='/cygdrive/c/Program\ Files/Wireshark/tshark.exe'
 alias xx='startxwin &'
 
 pushd ~/.emacs.d
