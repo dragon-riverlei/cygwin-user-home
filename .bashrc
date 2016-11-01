@@ -265,6 +265,15 @@ alias taskjuggler="tj3"
 alias tshark='/cygdrive/c/Program\ Files/Wireshark/tshark.exe'
 alias xx='startxwin &'
 
+function run_emacs(){
+    emacs_process=$(ps aux | grep "emacs-w32")
+    if [ "$emacs_process" == "" ]; then
+        ew
+    fi
+}
+
+run_emacs
+
 pushd ~/.emacs.d
 pushd /cygdrive/c/Code/hel_git/smp/dist/main.build
 pushd /cygdrive/c/GitSAP/I062289/ultralite_xamarin
