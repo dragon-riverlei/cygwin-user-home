@@ -236,6 +236,7 @@ alias jc='jupyter qtconsole --style '
 alias la='ls -a'
 alias ll='ls -la'
 alias mvn='mvn.bat'
+alias mysqldb='mysqld_safe &'
 alias org='/BaiduYun/org'
 alias xx='startxwin &'
 
