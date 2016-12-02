@@ -247,7 +247,7 @@ alias ew='emacs-w32.exe &'
 alias ff='find ./ -type f -name'
 alias ghd=/GitHub/dragon-riverlei
 alias hcmsrc=/cygdrive/c/Code/hel_git/hcmui
-alias jc='jupyter qtconsole --style perldoc'
+alias jn='jupyter notebook'
 alias mvn='mvn.bat'
 alias om='/GitHub/dragon-riverlei/omnisharp_server/OmniSharp/bin/Debug/OmniSharp.exe'
 alias org='/BaiduYun/org'
@@ -264,15 +264,6 @@ alias smp=/cygdrive/c/Code/hel_git/smp/dist/main.build
 alias taskjuggler="tj3"
 alias tshark='/cygdrive/c/Program\ Files/Wireshark/tshark.exe'
 alias xx='startxwin &'
-
-function run_emacs(){
-    emacs_process=$(ps aux | grep "emacs-w32")
-    if [ "$emacs_process" == "" ]; then
-        ew
-    fi
-}
-
-run_emacs
 
 pushd ~/.emacs.d
 pushd /cygdrive/c/Code/hel_git/smp/dist/main.build
@@ -374,6 +365,11 @@ function syncdownorg(){
     rm -rf /BaiduYun/org.yun
     echo "Done."
 }
+
+function change_title(){
+    echo -ne "\e]0;$1\a"
+}
+
 
 PATH="/home/I062289/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/I062289/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
