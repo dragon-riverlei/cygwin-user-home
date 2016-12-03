@@ -208,6 +208,7 @@ ln -s /cygdrive/d/BaiduYun /BaiduYun
 rm -f /Tools
 ln -s /cygdrive/d/Tools /Tools
 
+export EDITOR='emacsclient-w32.exe '
 export PS1='\n\[\e[32m\][\h] \[\e[33m\]\w$(__git_ps1 " (%s)")\[\e[0m\]\n\$  '
 
 export GOROOT=D:/Go
@@ -229,10 +230,10 @@ export DISPLAY=:0.0
 alias bfg='java -jar $(cygpath -w "/cygdrive/d/Tools/bfg-1.12.8.jar")'
 alias cd='cd '
 alias e='emacsclient-w32.exe -n '
-alias ew='emacs-w32.exe &'
+alias ew='emacs-w32.exe --maximized --name Emacs &'
 alias ff='find ./ -type f -name'
 alias ghd=/GitHub/dragon-riverlei
-alias jc='jupyter qtconsole --style '
+alias jn='jupyter notebook'
 alias la='ls -a'
 alias ll='ls -la'
 alias mvn='mvn.bat'
